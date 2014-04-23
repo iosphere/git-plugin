@@ -614,7 +614,7 @@ public class GitSCM extends GitSCMBackwardCompatibility {
 
                 FetchCommand fetch = git.fetch_().from(url, remoteRepository.getFetchRefSpecs());
                 for (GitSCMExtension extension : extensions) {
-                    extension.decorateFetchCommand(this, git, listener, fetch);
+                    extension.decorateFetchCommand(this, git, listener, fetch, url, remoteRepository.getFetchRefSpecs());
                 }
                 fetch.execute();
             } catch (GitException ex) {

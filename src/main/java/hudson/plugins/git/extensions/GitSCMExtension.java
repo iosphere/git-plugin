@@ -15,13 +15,16 @@ import hudson.plugins.git.Revision;
 import hudson.plugins.git.util.BuildChooser;
 import hudson.plugins.git.util.BuildData;
 import hudson.scm.SCM;
+import org.eclipse.jgit.transport.RefSpec;
+import org.eclipse.jgit.transport.URIish;
 import org.jenkinsci.plugins.gitclient.CloneCommand;
 import org.jenkinsci.plugins.gitclient.FetchCommand;
-import org.jenkinsci.plugins.gitclient.MergeCommand;
 import org.jenkinsci.plugins.gitclient.GitClient;
+import org.jenkinsci.plugins.gitclient.MergeCommand;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -145,6 +148,14 @@ public abstract class GitSCMExtension extends AbstractDescribableImpl<GitSCMExte
      * Called before a {@link FetchCommand} is executed to allow extensions to alter its behaviour.
      */
     public void decorateFetchCommand(GitSCM scm, GitClient git, TaskListener listener, FetchCommand cmd) throws IOException, InterruptedException, GitException {
+        decorateFetchCommand(scm, git, listener, cmd, null, null);
+    }
+
+    /**
+     * Called before a {@link FetchCommand} is executed to allow extensions to alter its behaviour.
+     */
+    public void decorateFetchCommand(GitSCM scm, GitClient git, TaskListener listener, FetchCommand cmd, URIish uri,
+                                     List<RefSpec> refSpecs) throws IOException, InterruptedException, GitException {
     }
 
     /**

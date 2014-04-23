@@ -1,4 +1,14 @@
 <div>
-  Specify a folder containing a repository that will be used by Git as a reference during clone operations.<br/>
-  This option will be ignored if the folder is not available on the master or slave where the clone is being executed.
+  Specify a directory path to a local mirror that will be used during
+  clone operations, e.g. <code>/opt/my git mirror/some-project.git</code><br/>
+  Variables in the form <code>$VARIABLE</code> or <code>${VARIABLE}</code> will
+  be expanded as appropriate at build time.
+  <p/>
+  When a valid path is specified, cloning from a "reference" repository should
+  be faster and consume less disk space than cloning solely from the configured
+  remote repository URL.<br/>
+  See the <code>git clone --reference</code> documentation for more information.
+  <p/>
+  This option will be ignored if the given directory does not exist on the
+  machine where the clone operation is being executed.
 </div>

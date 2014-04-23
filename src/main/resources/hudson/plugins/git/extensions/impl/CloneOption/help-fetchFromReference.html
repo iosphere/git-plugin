@@ -1,0 +1,18 @@
+<div>
+  If the path to a reference repo is specified, enabling this option will also
+  use that local repository for each git fetch operation after the initial
+  clone.
+  <p/>
+  This rewrites the URL used in the <code>git fetch</code> command, so that
+  Jenkins can pull updates from a repository mirrored locally, rather than
+  having to fetch from the configured remote repository URL.<br/>
+  <p/>
+  This option will be ignored if the path is not available on the machine where
+  the clone operation is being executed.
+  <p/>
+  <b>Note:</b> This requires that the contents of the local reference repository
+  are kept up-to-date with remote repository, otherwise Jenkins will see no
+  changes.<br/>
+  <b>Note:</b> If this option is enabled, currently you will not be able to use
+  variables in the path to the reference repo.
+</div>
